@@ -18,9 +18,9 @@ exports.login = (req, res) => {
     const password = body.password;
     try {
         const resultLogin = firebaseApi.signInWithEmailPassword(email, password);
-        res.status(200).end(resultLogin);
+        res.status(200).send(resultLogin);
     } catch (e) {
-        res.status(401).end(e.toString());
+        res.status(401).send(e.toString());
     }
 };
 
@@ -30,8 +30,8 @@ exports.signUp = (req, res) => {
     const password = body.password;
     try {
         const resultSignUp = firebaseApi.signUpWithEmailPassword(email, password);
-        res.status(200).end(resultSignUp);
+        res.status(200).send(resultSignUp);
     } catch (e) {
-        res.status(401).end(e.toString());
+        res.status(401).send(e.toString());
     }
 };
